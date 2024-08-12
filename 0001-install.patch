@@ -1,0 +1,33 @@
+From c1b2228a48118d4a7b1bdb7609dbf76633f1b024 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Sun, 11 Aug 2024 20:17:10 +0800
+Subject: [PATCH] install
+
+---
+ radeon-profile/radeon-profile.pro | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/radeon-profile/radeon-profile.pro b/radeon-profile/radeon-profile.pro
+index 7a3ac51..1f16e8b 100644
+--- a/radeon-profile/radeon-profile.pro
++++ b/radeon-profile/radeon-profile.pro
+@@ -108,13 +108,13 @@ DISTFILES += \
+     translations/strings.ru.ts
+ 
+ 
+-bin.path = /usr/bin
++bin.path = $$PREFIX/bin
+ bin.files = target/radeon-profile
+ 
+-desktop.path = /usr/share/applications
++desktop.path = $$PREFIX/share/applications
+ desktop.files = extra/radeon-profile.desktop
+ 
+-icon.path = /usr/share/icons/hicolor/512x512/apps
++icon.path = $$PREFIX/share/icons/hicolor/512x512/apps
+ icon.files = extra/radeon-profile.png
+ 
+ INSTALLS += \
+-- 
+2.43.4
+

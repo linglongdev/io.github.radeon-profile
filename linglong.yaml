@@ -1,0 +1,29 @@
+version: "1"
+
+package:
+  id: io.github.radeon-profile
+  name: radeon-profile
+  version: 20.8.24.1
+  kind: app
+  description: |
+    Application to read current clocks of ATi Radeon cards
+
+command:
+  - /opt/apps/io.github.radeon-profile/files/bin/radeon-profile
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/marazmista/radeon-profile.git
+    version: master
+    commit: 0fd5b8dd326957e6fa8afda2bba5fc4c48fd0de4
+
+build: |
+  cd /project/linglong/sources/radeon-profile.git
+  git apply ../../../0001-install.patch
+  cd radeon-profile
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make -j$(nproc)
+  make install
